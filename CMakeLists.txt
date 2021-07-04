@@ -14,9 +14,10 @@ set ( CMAKE_CXX_FLAGS "-Wall" )
 include_directories( include )
 
 
-# Cria um executável com nome "run_tests", adiciona neste executável os arquivos do test manager e o seu main.cpp
+# Cria um executável com nome "kenobet", adiciona neste executável os arquivos do test manager e o seu main.cpp
 add_executable( kenobet
                 src/file.cpp
-                src/main.cpp )
+                src/main.cpp
+                src/kenobet.cpp )
 
 # The end

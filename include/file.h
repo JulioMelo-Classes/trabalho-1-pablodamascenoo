@@ -1,6 +1,7 @@
 #ifndef FILE_H
 #define FILE_H
 
+using number_type = unsigned short int;
 
 #include<iostream>
 #include<vector>
@@ -13,7 +14,8 @@ class file{
 public:
     float initial_credit;
     int rounds;
-    std::vector<int> bets;
+    float credit_round;
+    std::vector<unsigned short int> bets;
     file(std::string arq);
 };
 

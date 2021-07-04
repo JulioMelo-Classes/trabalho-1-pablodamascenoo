@@ -1,6 +1,16 @@
-# Trabalho-1
-Repositório contendo as especificações do Trabalho 1 da disciplina de LP1
+# KenoBet
 
-# Documento de Especificação
 
-Leia o documento de especificação contido em [Especificação do Trabalho 1](https://docs.google.com/document/d/1nwQxiP9YQzU3O-H4YQMqWRtylqO1AOke8y1rQF7cPEc/edit?usp=sharing). Preencha o autor.md com as informações relativas ao grupo/autor.
+* [Compilação](#compilação)
+* [Execução](#execução)
+
+
+# Compilação
+
+Para compilar o projeto, crie a pasta build com `mkdir build`, entre na pasta com `cd build` e execute o comando `cmake --build .` para compilar o projeto dentro da pasta build.
+
+
+# Execução
+
+ Compilado o programa, ainda dentro da pasta build execute o programa com `./kenobet <../files/arquivo.txt>`. Se seu arquivo de apostas estiver fora da pasta files especifique o caminho para achá-lo.
+

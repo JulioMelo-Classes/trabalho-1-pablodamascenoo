@@ -27,5 +27,6 @@ Todos os testes de caso estão dentro do diretório `files` e podem ser executad
 * **strange_formatation**: arquivo com todas as informações em uma linha só
 * **string_on_credit**: string no lugar do valor apostado
 * **string_on_rounds**: string no lugar das rodadas
+* **string_on_bets**: string no lugar dos números apostados
 
 Todos os arquivos de teste são de extensão .txt

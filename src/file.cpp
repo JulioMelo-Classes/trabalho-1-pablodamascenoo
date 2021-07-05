@@ -48,7 +48,6 @@ file::file(std::string arq){
         std::stringstream iss(lines[2]);
         while(iss >> number){
             bets.push_back(number);
-            std::cout<<number<<std::endl;
         }
         if(bets.size() <= 0 ){
             throw "ERRO: Há um comportamento estranho com os números apostados.";

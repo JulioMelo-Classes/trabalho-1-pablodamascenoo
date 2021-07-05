@@ -5,7 +5,9 @@
 
 using namespace std;
 
-/*! "seta" o valor do lucro obtido*/
+/*! "seta" o valor do lucro obtido
+    @params: lucro obtido
+    @return: boolean F se o lucro for negativo e T se for positivo*/
 bool KenoBet::set_wage(cash_type wage_){
 
     if(wage_ > 0){
@@ -17,24 +19,31 @@ bool KenoBet::set_wage(cash_type wage_){
 }
 
 
-/*! Mostra o lucro obtido*/
+/*! Mostra o lucro obtido
+    @return: retorna m_wage com o lucro obtido*/
 cash_type KenoBet::get_wage() const{
 
     return m_wage;
 }
 
 
-/*! retorna a quantidade de números apostados */
+/*! o método size retorna a quantidade de números apostados
+    @return: retorna a quantidade de números apostados */
 size_t KenoBet::size() const{
 
     return m_spots.size();
 }
 
-/*! Ordena e mostra os  */
+/*! o método get_spots retorna os números apostados
+    @return: retorna um vector de números apostados  */
+
 set_of_numbers_type KenoBet::get_spots() const{
 
     return m_spots;
 }
+
+/*! o método show_spots imprime no terminal o vector recebido
+    @params: recebe o vector a ser impresso */
 
 void KenoBet::show_spots(set_of_numbers_type spots_){
 
@@ -45,6 +54,9 @@ void KenoBet::show_spots(set_of_numbers_type spots_){
     cout<<"]";
 }
 
+/*! o método get_hits recebe a lista de números sorteados e compara com os números apostados
+    @params: recebe o vector de números sorteados
+    @return: retorna um vector de números acertados  */
 set_of_numbers_type KenoBet::get_hits( const set_of_numbers_type & hits_ ) const{
 
     set_of_numbers_type acertados;
@@ -55,7 +67,6 @@ set_of_numbers_type KenoBet::get_hits( const set_of_numbers_type & hits_ ) const
     {
         for (size_t j = 0; j < hits_.size(); j++)
         {
-            // cout<<m_spots[i]<<" "<<hits_[j]<<endl;
             if(m_spots[i]==hits_[j]){
                 acertados.push_back(m_spots[i]);
             }
@@ -67,6 +78,9 @@ set_of_numbers_type KenoBet::get_hits( const set_of_numbers_type & hits_ ) const
     return acertados;
 }
 
+/*! o método hits cria um vector com 20 números sorteados entre 1 e 80 a partir das funções rand() e srand() e os ordena.
+    @params: recebe o round atual para criar um vector de números sorteados aleatórios
+    @return: lista de números sorteados  */
 set_of_numbers_type KenoBet::hits(int rounds){
 
     set_of_numbers_type hits;
@@ -103,7 +117,9 @@ set_of_numbers_type KenoBet::hits(int rounds){
     return hits;
 }
 
-
+/*! payoff_table retorna o fator multiplicativo do dinheiro apostado
+    @params: total de números apostados e acertos  
+    @return: fator multiplicativo */
 cash_type KenoBet::payoff_table(number_type total, number_type acertos){
 
     vector<vector<cash_type>> table = {

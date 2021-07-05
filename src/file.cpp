@@ -14,7 +14,7 @@ file::file(std::string arq){
     * If para tratar a abertura do arquivo
     * @throw: retorna uma mensagem que será recebida no catch na main.cpp
     */
-    if(source.is_open()==false){
+    if(source.is_open()==false || source.peek() == std::ifstream::traits_type::eof()){
         throw "ERRO: O arquivo não foi encontrado ou não foi possível abrí-lo.";
     }
 
@@ -30,8 +30,15 @@ file::file(std::string arq){
         lines.push_back(line);
     }
 
-    
+    if(lines.size()>3 || lines.size()<3){
+        throw "ERRO: Arquivo de apostas em formatação estranha.";
+    }
 
+    
+    /*!
+    * bloco try para testar se o arquivo de apostas é válido
+    * @throw: retorna uma mensagem que será recebida no catch na main.cpp
+    */
     try{
         rounds = stoi(lines[1]);
         initial_credit = stof(lines[0]);
@@ -41,6 +48,7 @@ file::file(std::string arq){
         std::stringstream iss(lines[2]);
         while(iss >> number){
             bets.push_back(number);
+            std::cout<<number<<std::endl;
         }
         if(bets.size() <= 0 ){
             throw "ERRO: Há um comportamento estranho com os números apostados.";
@@ -62,6 +70,8 @@ file::file(std::string arq){
         }
     }
     
+    /*!
+    * Ordena os números apostados */
     for(auto i=bets.begin(); i!=bets.end()-1; i++){
         for(auto j=i+1; j!=bets.end(); j++){
             if(*i>*j){

@@ -9,6 +9,28 @@ using set_of_numbers_type = std::vector< number_type >;
 
 using namespace std;
 
+/*
+Avaliação
+Processamento do Arquivo de Entrada: 1
+Execução correta: 1
+Interfcace Textual: 1
+Documentação: 0,8 (faltou documentar os atributos da classe file)
+Compilação automatizada: 1
+Organização em src, include, build, data: 1
+
+Comentários
+- Muito boa a iniciativa de adicionar arquivos de teste e documentar ela no readme!
+- Vc centralizou a parte de validação do arquivo na classe file, poderia ter também
+centralizado a inteface textual em uma classe específica!
+- Especialmente falando do uso da classe file, como conversamos na entrevista, o lugar
+onde vc usa ela com um bloco "try ... catch" gigante é uma má prática... Como eu te falei,
+quando um determinado conjunto de instruções dá exceção a gente reduz o escopo daquele conjunto
+o máximo que der. No seu caso a solução era criar um construtor vazio na classe file e criar
+um método separado para fazer a validação do arquivo que não fosse no construtor. Assim vc poderia
+criar o objeto e chamar o método em um try ... catch, saindo do programa caso ocorresse algum erro
+e continuando caso contrário.
+*/
+
 int main(int argc, char *argv[]){
 
     /*! se o arquivo não for passado como argumento imprime o erro no terminal*/
